@@ -1,0 +1,13 @@
+a2x_blog_post:
+    resource: "@A2xBlogBundle/Controller/PostController.php"
+    type:     annotation
+
+a2x_blog:
+    resource: "@A2xBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

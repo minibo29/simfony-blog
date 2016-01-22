@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Post list</h1>
+
+    {% for post in posts %}
+        <div class="blog-post">
+            <h2 class="blog-post-title"><a href="{{ path('_show', { 'id': post.id }) }}">{{ post.title }} </a></h2>
+            <p class="blog-post-meta">{{ post.created|date('Y-m-d') }}
+                {% if post.published %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
+                <a href="{{ path('_edit', { 'id': post.id }) }}">Update</a>
+            </p>
+
+            <p>{{ post.descriptions }}</p>
+        </div><!-- /.blog-post -->
+
+
+    {% endfor %}
+    {#<tr>#}
+        {#<td><a href="{{ path('_show', { 'id': post.id }) }}">{{ post.id }}</a></td>#}
+        {#<td>{{ post.title }}</td>#}
+        {#<td>{{ post.descriptions }}</td>#}
+        {#<td>{{ post.text }}</td>#}
+        {#<td>{% if post.published %}Yes{% else %}No{% endif %}</td>#}
+        {#<td>{{ post.created|date('Y-m-d') }}</td>#}
+        {#<td>{{ post.updated|date('Y-m-d') }}</td>#}
+        {#<td>#}
+            {#<ul>#}
+                {#<li>#}
+                    {#<a href="{{ path('_show', { 'id': post.id }) }}">show</a>#}
+                {#</li>#}
+                {#<li>#}
+                    {#<a href="{{ path('_edit', { 'id': post.id }) }}">edit</a>#}
+                {#</li>#}
+            {#</ul>#}
+        {#</td>#}
+    {#</tr>#}
+
+    <ul>
+        <li>
+            <a href="{{ path('_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

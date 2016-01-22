@@ -1,0 +1,3 @@
+a2x_blog_homepage:
+    path:     /
+    defaults: { _controller: A2xBlogBundle:Default:index }
